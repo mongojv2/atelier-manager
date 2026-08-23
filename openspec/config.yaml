@@ -1,0 +1,53 @@
+schema: spec-driven
+
+context: |
+  App: atelier-manager (Sistema de Confección Atelier) — garment design & order management with RBAC + IEEE 830 business rules.
+  Stack: React 19 + Vite 6 + Tailwind 4 + TypeScript ~5.8 frontend; Express 4 + tsx backend (server.ts).
+  ORM/DB: Drizzle ORM + SQLite Cloud (@sqlitecloud/drivers), 13-table schema in server/db/schema.ts.
+  Persistence: dual — JSON file store (server/dbStore.ts -> data/db.json) + optional SQLite Cloud via Drizzle proxy.
+  Architecture: layered — server.ts (REST) -> server/dbStore.ts (business logic) -> server/db/ (ORM/schema); shared domain types in src/types.ts (RF-xxx/RN-xxx annotated).
+  Phases: Fase 1 Clientes/Medidas/Disenos/Pedidos; Fase 2 Inventario/Bodega; Fase 3 Taller/Citas/Notificaciones; Fase 4 Facturacion/Reportes.
+  Package manager: Bun (bun.lock present; npm-compatible scripts). lint = `tsc --noEmit` (no ESLint/Prettier).
+
+testing:
+  detected: "2026-08-18"
+  strict_tdd: false
+  runner:
+    framework: none
+    command: ""
+  layers:
+    unit: false
+    integration: false
+    e2e: false
+  coverage:
+    available: false
+    command: ""
+  quality:
+    linter: false
+    typechecker: true
+    formatter: false
+  lint_command: "tsc --noEmit"
+
+rules:
+  proposal:
+    - Include rollback plan for risky changes
+  specs:
+    - Use Given/When/Then for scenarios
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+  design:
+    - Include sequence diagrams for complex flows
+    - Document architecture decisions with rationale
+  tasks:
+    - Group by phase, use hierarchical numbering
+    - Keep tasks completable in one session
+  apply:
+    guidelines:
+      - Follow existing code patterns (Spanish domain literals in src/types.ts and server.ts)
+    tdd: false
+    test_command: ""
+  verify:
+    test_command: ""
+    build_command: "npm run build"
+    coverage_threshold: 0
+  archive:
+    - Warn before merging destructive deltas

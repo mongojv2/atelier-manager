@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Production builds
+dist/
+build/
+coverage/
+
+# Environment variables & secrets (CRITICAL)
+.env*
+!.env.example
+
+# Runtime local data & database fallbacks
+data/*.json
+
+# Logs & OS System files
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE & AI Assistant temporary metadata
+.atl/
+.config/
+.copilot/
+.gemini/
+.gga

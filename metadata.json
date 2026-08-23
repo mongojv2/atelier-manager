@@ -1,0 +1,6 @@
+{
+  "name": "Sistema de Confección - Atelier Manager",
+  "description": "Sistema de Gestión para Local de Diseño y Confección de Ropa (Fase 1: Clientes, Medidas, Diseños y Pedidos con RBAC y Reglas de Negocio).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
